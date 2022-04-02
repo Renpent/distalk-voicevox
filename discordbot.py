@@ -62,7 +62,8 @@ async def zunda(ctx):
             await ctx.send('ボイスチャンネルに接続していません。')
         if ctx.voice_client.is_playing():
             await ctx.send('ずんだもんラップを再生中です')
-        ctx.voice_client.play(discord.FFmpegPCMAudio("Zunda_rap.mp3"))
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("Zunda_rap.mp3"), volume=0.8)
+        ctx.voice_client.play(source)
         await ctx.send('ずんだもんラップを再生しています。')
 
 @client.command()
@@ -73,7 +74,7 @@ async def zunda_stop(ctx):
         if not ctx.voice_client.is_playing():
             await ctx.send('ずんだもんラップを再生していません')
         ctx.voice_client.stop()
-        await ctx.send('ずんだもんラップを再生しています。')
+        await ctx.send('ずんだもんラップを停止しました。')
 
 @client.event
 async def on_message(message):
