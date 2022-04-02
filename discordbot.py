@@ -1,4 +1,5 @@
 import asyncio
+from email import message
 import discord
 from discord.ext import commands
 import os
@@ -53,6 +54,26 @@ async def 切断(ctx):
             await ctx.send('ボイスチャンネルに接続していません。')
         else:
             await ctx.voice_client.disconnect()
+
+@client.command()
+async def zunda(ctx):
+    if ctx.message.guild:
+        if ctx.voice_client is None:
+            await ctx.send('ボイスチャンネルに接続していません。')
+        if ctx.voice_client.is_playing():
+            await ctx.send('ずんだもんラップを再生中です')
+        ctx.voice_client.play(discord.FFmpegPCMAudio("Zunda_rap.mp3"))
+        await ctx.send('ずんだもんラップを再生しています。')
+
+@client.command()
+async def zunda_stop(ctx):
+    if ctx.message.guild:
+        if ctx.voice_client is None:
+            await ctx.send('ボイスチャンネルに接続していません。')
+        if not ctx.voice_client.is_playing():
+            await ctx.send('ずんだもんラップを再生していません')
+        ctx.voice_client.stop()
+        await ctx.send('ずんだもんラップを再生しています。')
 
 @client.event
 async def on_message(message):
