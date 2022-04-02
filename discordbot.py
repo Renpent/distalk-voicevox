@@ -69,6 +69,9 @@ async def on_message(message):
 
                 if id == 510082622903418880:
                     text = 'がちのしゃふが' + '、' + text + 'といっています'
+                
+                if id == 697508502540648508:
+                    text = 'しゃふが' + '、' + text + 'といっています'
 
                 # Replace new line
                 text = text.replace('\n', '、')
