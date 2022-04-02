@@ -64,7 +64,7 @@ async def on_message(message):
                 # Add author's name
                 # text = message.author.name + '、' + text
                 id = message.author.id
-                if id == 697508502540648508
+                if id == 697508502540648508:
                     text = 'しゃふが' + '、' + text + 'といっています'
 
                 # Replace new line
