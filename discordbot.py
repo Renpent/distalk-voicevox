@@ -78,8 +78,14 @@ async def zunda_stop(ctx):
 
 
 @client.command()
-async def vsnum_2(ctx):
-    voicevox_speaker = '2'
+async def vsnum_19(ctx):
+    voicevox_speaker = '19'
+    await ctx.send('ボイスを九州そら-ささやきに変更します')
+
+@client.command()
+async def vsnum_3(ctx):
+    voicevox_speaker = '3'
+    await ctx.send('ボイスをずんだもんに変更します')
 #コマンドでスピーカーを変更できるようにしたい！
 
 @client.event
