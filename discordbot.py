@@ -76,6 +76,12 @@ async def zunda_stop(ctx):
         ctx.voice_client.stop()
         await ctx.send('ずんだもんラップを停止しました。')
 
+
+@client.command()
+async def vsnum_2(ctx):
+    voicevox_speaker = '2'
+#コマンドでスピーカーを変更できるようにしたい！
+
 @client.event
 async def on_message(message):
     if message.guild.voice_client:
@@ -212,7 +218,9 @@ async def ヘルプ(ctx):
     message = f'''◆◇◆{client.user.name}の使い方◆◇◆
 {prefix}＋コマンドで命令できます。
 {prefix}接続：ボイスチャンネルに接続します。
-{prefix}切断：ボイスチャンネルから切断します。'''
+{prefix}切断：ボイスチャンネルから切断します。
+{prefix}zunda：ずんだもんラップを再生します。
+{prefix}zunda_stop：ずんだもんラップを停止します。'''
     await ctx.send(message)
 
 client.run(token)
