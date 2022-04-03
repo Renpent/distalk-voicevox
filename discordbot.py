@@ -78,14 +78,12 @@ async def zunda_stop(ctx):
 
 
 @client.command()
-async def vsnum_19(ctx):
-    voicevox_speaker = '19'
-    await ctx.send('ボイスを九州そら-ささやきに変更します')
-
-@client.command()
-async def vsnum_3(ctx):
-    voicevox_speaker = '3'
-    await ctx.send('ボイスをずんだもんに変更します')
+async def ks(ctx, text):
+    if ctx.message.guild:
+        mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker=19&intonationScale=1'
+        while ctx.voice_client.is_playing():
+            await asyncio.sleep(0.5)
+        ctx.voice_client.play(discord.FFmpegPCMAudio(mp3url))
 #コマンドでスピーカーを変更できるようにしたい！
 
 @client.event
@@ -200,7 +198,7 @@ async def on_voice_state_update(member, before, after):
                         await member.guild.voice_client.disconnect()
                     else:
                         text = member.name + 'さんが退室しました'
-                        mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker={voicevox_speaker}&intonationScale=1'
+                        mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker={voicevox_speaker}&intonationScale=1.15'
                         while member.guild.voice_client.is_playing():
                             await asyncio.sleep(0.5)
                         member.guild.voice_client.play(discord.FFmpegPCMAudio(mp3url))
