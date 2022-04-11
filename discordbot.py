@@ -56,6 +56,15 @@ async def dc(ctx):
             await ctx.voice_client.disconnect()
 
 @client.command()
+async def gmks(ctx):
+    if ctx.message.guild:
+        if ctx.voice_client is None:
+            await ctx.send('あﾞあﾞゴﾞミカスゥッ！！死ねぇえッッ！！')
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("gmks.wav"), volume=0.5)
+        ctx.voice_client.play(source)
+        await ctx.send('カス')
+
+@client.command()
 async def zunda(ctx):
     if ctx.message.guild:
         if ctx.voice_client is None:
