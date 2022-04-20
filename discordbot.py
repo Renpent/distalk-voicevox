@@ -69,7 +69,7 @@ async def tknmt(ctx):
     if ctx.message.guild:
         if ctx.voice_client is None:
             await ctx.send('それって・・・')
-        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("tknmt.mp3"), volume=1.5)
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("tknmt.mp3"), volume=1.4)
         ctx.voice_client.play(source)
 
 @client.command()
